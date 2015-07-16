@@ -1,0 +1,51 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    instance_type: '{{ instance_type }}'
+    region: '{{ region }}'
+    aws_zone: '{{ aws_zone }}'
+  tasks:
+  - name: Launch instance (Ubuntu 14.04 hvm)
+  ec2: image='ami-9eaa1cf6'
+       instance_type="{{ instance_type }}"
+       keypair='{{ keypair }}'
+       instance_tags='{"Environment":"{{ environment }}","Class":"{{ class }}-immutable","Name":"{{ app }} (immutable)"}'
+       region='{{region}}'
+       aws_zone='{{ aws_zone }}'
+       group='{{ security_group }}'
+       wait=true
+  register: ec2_info
+
+  - add_host: hostname={{=<% %>=}}{{ item.public_ip }}<%={{ }}=%>
+    groupname="{{ group }},ec2hosts"
+    with_items: ec2_info.instances
+
+  - name: Wait for instances to listen on port 22
+    wait_for:
+      state=started
+      host={{=<% %>=}}{{ item.public_dns_name }}<%={{ }}=%>
+      port=22
+    with_items: ec2_info.instances
+
+# Run your specific roles that install and configure your application
+- hosts: ec2hosts
+  gather_facts: true
+  user: {{ remote_user }}
+  sudo: yes
+  roles:
+    - {{ app }}
+
+- hosts: ec2hosts
+  tasks:
+  - name: Gather ec2 facts
+    ec2_facts:
+  - debug: var=ansible_ec2_instance_id # You can remove this if you like
+  - name: Add newly created instance to elb
+    local_action:
+      module: ec2_elb
+      region: '{{ region }}'
+      instance_id: "{{=<% %>=}}{{ ansible_ec2_instance_id }}<%={{ }}=%>"
+      ec2_elbs: "{{ load_balancer }}"
+      state: present
