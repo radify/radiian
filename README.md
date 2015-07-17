@@ -1,4 +1,7 @@
+[ ![Codeship Status for radify/radiian](https://codeship.com/projects/b48eb730-0eb6-0133-f4b7-6a87ab38c290/status?branch=master)](https://codeship.com/projects/91776)
+
 # radiian
+
 ## Radify Immutable Infrastructure for Ansible
 
 ### What is radiian? 
