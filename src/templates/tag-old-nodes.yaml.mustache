@@ -7,7 +7,7 @@
     action: ec2_facts
     register: ec2_facts
     - name: Add a tag "{{ tag_old_app }}" to all existing nodes, so we can filter them out later
-    local_action: ec2_tag resource={{=<% %>=}}{{ec2_facts.ansible_facts.ansible_ec2_instance_id}}<%={{ }}=%> region='{{ region }}' state=present
+    local_action: ec2_tag resource={{=<% %>=}}{{ec2_facts.ansible_facts.ansible_ec2_instance_id}}<%={{ }}=%> region='{{=<% %>=}}{{ region }}<%={{ }}=%>' state=present
     args:
       tags:
         {{ tag_old_app }}: true

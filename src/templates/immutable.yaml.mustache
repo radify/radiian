@@ -11,9 +11,9 @@
   ec2: image='ami-9eaa1cf6'
        instance_type="{{ instance_type }}"
        keypair='{{ keypair }}'
-       instance_tags='{"Environment":"{{ environment }}","Class":"{{ class }}-immutable","Name":"{{ app }} (immutable)"}'
-       region='{{region}}'
-       aws_zone='{{ aws_zone }}'
+       instance_tags='{"Environment":"{{ environment }}","Class":"{{ className }}-immutable","Name":"{{ appName }} (immutable)"}'
+       region='{{=<% %>=}}{{ region }}<%={{ }}=%>'
+       aws_zone='{{=<% %>=}}{{ region }}<%={{ }}=%>{{=<% %>=}}{{ aws_zone }}<%={{ }}=%>'
        group='{{ security_group }}'
        wait=true
   register: ec2_info
@@ -35,7 +35,7 @@
   user: {{ remote_user }}
   sudo: yes
   roles:
-    - {{ app }}
+    - {{ appName }}
 
 - hosts: ec2hosts
   tasks:
@@ -45,7 +45,7 @@
   - name: Add newly created instance to elb
     local_action:
       module: ec2_elb
-      region: '{{ region }}'
+      region: "{{=<% %>=}}{{ region }}<%={{ }}=%>"
       instance_id: "{{=<% %>=}}{{ ansible_ec2_instance_id }}<%={{ }}=%>"
       ec2_elbs: "{{ load_balancer }}"
       state: present
