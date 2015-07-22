@@ -27,8 +27,12 @@
   "homepage": "https://github.com/radify/radiian#readme",
   "devDependencies": {
     "gulp": "^3.9.0",
+    "gulp-jasmine": "^2.0.1",
+    "gulp-jscs": "^1.6.0",
     "gulp-jshint": "^1.11.2",
-    "jscs": "^1.13.1"
+    "jasmine": "^2.3.1",
+    "jscs": "^1.13.1",
+    "karma": "^0.13.2"
   },
   "dependencies": {
     "commander": "^2.8.1",
