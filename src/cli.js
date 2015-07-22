@@ -28,6 +28,8 @@
   }, {
     name: 'aws_zone',
     description: 'Within the region, in which zone will it run?',
+    pattern: /^[a-z]{1}$/, // this matches one lowercase letter only.
+    message: 'Your entry must be a single lowercase character.',
     default: 'b',
     type: 'string',
     required: true
@@ -90,18 +92,31 @@
   }, {
     name: 'app_pem',  // TODO: add regex to confirm '.pem' ending
     description: 'What is the name of your .pem private key?',
+    pattern: /(.pem)$/, // The key must end with .pem
+    message: 'Your private key must end in \'.pem\'',
     default: 'my_private_key.pem',
     type: 'string',
     required: true
   }, {
     name: 'aws_key', // TODO: add regex
     description: 'What is your AWS Key?',
+    pattern: /^((?:(?!.).)*)[A-Z0-9]{20}(?!.)/, // See message for regex in plain English
+    // Note that JavaScript (ES5) does not support lookbehind expressions such ?<! and ?<=.
+    // I've faked it by replacing the ordinary lookbehind, (?<!.), with the rather
+    // convoluted ^((?:(?!.).)*). This means "nothing can come before [A-Z0-9]{20}.
+    // It's counterpart, (?!.) means "nothing can come after [A-Z0-9]{20}.
+    // For a deep explanation, see https://stackoverflow.com/questions/7376238/javascript-regex-look-behind-alternative
+    message: 'AWS access key IDs must be 20 character, uppercase, alphanumeric strings with nothing before or after.',
     default: 'AKIAIOSFODNN7EXAMPLE',
     type: 'string',
     required: true
   }, {
     name: 'aws_secret_key', // TODO: add regex
     description: 'What is your AWS Secret Key?',
+    pattern: /^((?:(?!.).)*)[A-Za-z0-9/+=]{40}(?!.)/,
+    // This regex is essentially the same as the above, but it looks for 40 character,
+    // base-64 strings instead.
+    message: 'The AWS secret key must be a 40 character, base-64 string with nothing before or after',
     default: 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY',
     type: 'string',
     required: true
