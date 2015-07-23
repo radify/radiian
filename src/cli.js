@@ -107,7 +107,6 @@
     // It's counterpart, (?!.) means "nothing can come after [A-Z0-9]{20}.
     // For a deep explanation, see https://stackoverflow.com/questions/7376238/javascript-regex-look-behind-alternative
     message: 'AWS access key IDs must be 20 character, uppercase, alphanumeric strings with nothing before or after.',
-    default: 'AKIAIOSFODNN7EXAMPLE',
     type: 'string',
     required: true
   }, {
@@ -117,7 +116,6 @@
     // This regex is essentially the same as the above, but it looks for 40 character,
     // base-64 strings instead.
     message: 'The AWS secret key must be a 40 character, base-64 string with nothing before or after',
-    default: 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY',
     type: 'string',
     required: true
   }];
