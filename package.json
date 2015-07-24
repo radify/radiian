@@ -1,6 +1,6 @@
 {
   "name": "radiian",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "radiian generates an Ansible playbook for immutable infrastructure with AWS.",
   "main": "lib/cli.js",
   "scripts": {
@@ -27,18 +27,17 @@
   "homepage": "https://github.com/radify/radiian#readme",
   "devDependencies": {
     "gulp": "^3.9.0",
+    "gulp-istanbul": "^0.10.0",
     "gulp-jasmine": "^2.0.1",
     "gulp-jscs": "^1.6.0",
     "gulp-jshint": "^1.11.2",
-    "jasmine": "^2.3.1",
-    "jscs": "^1.13.1",
-    "karma": "^0.13.2"
+    "jscs": "^1.13.1"
   },
   "dependencies": {
     "commander": "^2.8.1",
+    "inquirer": "^0.9.0",
     "mkdirp": "^0.5.1",
     "mustache": "^2.1.2",
-    "prompt": "^0.2.14",
     "q": "^1.4.1"
   }
 }
