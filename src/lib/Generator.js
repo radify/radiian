@@ -5,7 +5,6 @@ var mkdirp = require('mkdirp');
 
 module.exports = {
   generate: function(answers) {
-    console.log(JSON.stringify(answers, null, '  '));
 
     // create promise versions of read and write files and mkdirp
     var read = Q.denodeify(fs.readFile);

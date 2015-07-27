@@ -23,7 +23,10 @@
     {
       type: 'input',
       name: 'appName',
-      message: 'What is the name of your application?',
+      message: function() {
+        process.stdout.write('\033c');  // clears console
+        return 'What is the name of your application?';
+      },
       default: 'myApp'
     }, {
     type: 'list',
@@ -314,7 +317,17 @@
           'base-64 string with nothing before or after';
       return validateInput(value, regex, errorMessage);
     }
-  }];
+  }, {
+      type: 'confirm',
+      name: 'confirmation',
+      message: function(answers) {
+        process.stdout.write('\033c');  // clears console
+        return 'Please confirm that your answers are correct.\n' +
+          JSON.stringify(answers, null, '  ') +
+          '\nAre these answers correct?';
+      },
+      default: true
+    }];
 
   module.exports = questions;
 }());
