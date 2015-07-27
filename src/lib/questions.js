@@ -1,4 +1,6 @@
 (function() {
+  'use strict';
+
   var regexes = require('./regexes');
 
   function validateInput(value, regex, errorMessage) {
@@ -24,7 +26,7 @@
       type: 'input',
       name: 'appName',
       message: function() {
-        process.stdout.write('\033c');  // clears console
+        process.stdout.write("\u001b[2J\u001b[0;0H");
         return 'What is the name of your application?';
       },
       default: 'myApp'
@@ -317,17 +319,7 @@
           'base-64 string with nothing before or after';
       return validateInput(value, regex, errorMessage);
     }
-  }, {
-      type: 'confirm',
-      name: 'confirmation',
-      message: function(answers) {
-        process.stdout.write('\033c');  // clears console
-        return 'Please confirm that your answers are correct.\n' +
-          JSON.stringify(answers, null, '  ') +
-          '\nAre these answers correct?';
-      },
-      default: true
-    }];
+  }];
 
   module.exports = questions;
 }());
