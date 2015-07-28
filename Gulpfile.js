@@ -35,7 +35,9 @@ gulp.task('coverage', function() {
 
 gulp.task('style', function() {
   return gulp.src('src/**/*.js')
-    .pipe(jscs());
+    .pipe(jscs({
+      fix: true
+    }));
 });
 
 gulp.task('default', ['lint', 'style', 'test']);

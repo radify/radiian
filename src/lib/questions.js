@@ -1,4 +1,6 @@
 (function() {
+  'use strict';
+
   var regexes = require('./regexes');
 
   function validateInput(value, regex, errorMessage) {
@@ -23,7 +25,10 @@
     {
       type: 'input',
       name: 'appName',
-      message: 'What is the name of your application?',
+      message: function() {
+        process.stdout.write("\u001b[2J\u001b[0;0H");
+        return 'What is the name of your application?';
+      },
       default: 'myApp'
     }, {
     type: 'list',
