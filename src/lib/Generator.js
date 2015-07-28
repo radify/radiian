@@ -9,9 +9,10 @@
   module.exports = {
     generate: function(answers) {
 
-      // create promise versions of read and write files and mkdirp
+      // create promise versions of read and write files, chmod, and mkdirp
       var read = Q.denodeify(fs.readFile);
       var write = Q.denodeify(fs.writeFile);
+      var chmod = Q.denodeify(fs.chmod);
       var mkdir = Q.denodeify(mkdirp);
 
       /**
@@ -54,14 +55,17 @@
       mkdir('ansible/inventory', '0755')
         .then(getReader('ansible.cfg.mustache')).then(render).then(getWriter('ansible/ansible.cfg'))
         .then(getReader('aws_keys.mustache')).then(render).then(getWriter('ansible/inventory/aws_keys'))
-        .then(getReader('destroy-old-nodes.yaml.mustache')).then(render).then(getWriter('ansible/destroy-old-nodes.yaml'))
+        .then(getReader('destroy-old-nodes.yaml.mustache')).then(render)
+          .then(getWriter('ansible/destroy-old-nodes.yaml'))
         .then(getReader('ec2.ini.mustache')).then(render).then(getWriter('ansible/inventory/ec2.ini'))
         .then(getReader('ec2.py')).then(render).then(getWriter('ansible/inventory/ec2.py'))
         .then(getReader('immutable.yaml.mustache')).then(render).then(getWriter('ansible/immutable.yaml'))
         .then(getReader('provision.sh.mustache')).then(render).then(getWriter('ansible/provision.sh'))
+          .then(chmod('ansible/provision.sh', '0744'))
         .then(getReader('tag-old-nodes.yaml.mustache')).then(render).then(getWriter('ansible/tag-old-nodes.yaml'))
         .catch(handler);
     }
   };
 
 }());
+
