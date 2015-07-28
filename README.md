@@ -52,9 +52,9 @@ cd ansible
 ```
 
 ### Semantic Versioning
-Radiian, like npm, uses [semantic versioning.](http://semver.org/) Versions tags are found in `git`, `package.json`, and `cli.js -V`.
+Radiian, like npm, uses [semantic versioning.](http://semver.org/) Versions tags are found in `git`, `package.json`, and `radiian.js -V`.
 To keep them all synchronized, we do *not* use `git tag` directly. Rather, we run `npm version x.y.z`, which updates the
-version number both in `package.json` and in `git`. (In fact, it adds a new `tag` commit automatically.) Because `cli.js`
+version number both in `package.json` and in `git`. (In fact, it adds a new `tag` commit automatically.) Because `radiian.js`
 receives its version number from `package.json`, there is never a need to update its versioning.
 
 ## License

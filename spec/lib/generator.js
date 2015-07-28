@@ -1,4 +1,4 @@
-var generator = require('../../src/lib/Generator.js');
+var generator = require('../../lib/Generator.js');
 
 describe('generator.js', function() {
   describe('generate()', function() {

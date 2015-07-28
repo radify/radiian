@@ -1,4 +1,4 @@
-var questions = require('../../src/lib/questions.js');
+var questions = require('../../lib/questions.js');
 
 describe('questions.js', function() {
   describe('format', function() {
