@@ -1,7 +1,6 @@
-var regexes = require('../../src/lib/regexes.js');
+var regexes = require('../../lib/regexes.js');
 
 describe('regexes.js', function() {
-
 
   describe('pem', function() {
     it('should fail on anything not ending in pem', function() {
