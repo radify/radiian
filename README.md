@@ -1,10 +1,10 @@
 [ ![Codeship Status for radify/radiian](https://codeship.com/projects/b48eb730-0eb6-0133-f4b7-6a87ab38c290/status?branch=master)](https://codeship.com/projects/91776)
 
-# radiian
+# Radiian
 
 ## Radify Immutable Infrastructure for Ansible
 
-### What is radiian? 
+### What is Radiian? 
 radiaan sets up a skeleton Ansible playbook with immutable infrastructure on Amazon AWS. It does so by deploying a very 
 basic static website to EC2 immutably, complete with:
 * Security Group
@@ -57,6 +57,10 @@ To keep them all synchronized, we do *not* use `git tag` directly. Rather, we ru
 version number both in `package.json` and in `git`. (In fact, it adds a new `tag` commit automatically.) Because `radiian.js`
 receives its version number from `package.json`, there is never a need to update its versioning.
 
+## Contributing
+
+Please see [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## License
 
-radiian is released under the [MIT License](http://www.opensource.org/licenses/MIT).
+Radiian is released under the [MIT License](LICENSE.txt).
