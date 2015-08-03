@@ -1,6 +1,8 @@
 ---
 - name: terminate old instances
   hosts: all
+  vars:
+    region: '{{ region }}'
   tasks:
     - action: ec2_facts
     - name: terminating old instances

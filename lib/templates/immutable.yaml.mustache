@@ -8,18 +8,17 @@
     aws_zone: '{{ aws_zone }}'
   tasks:
   - name: Launch instance (Ubuntu 14.04 hvm)
-  ec2: image='ami-9eaa1cf6'
-       instance_type="{{ instance_type }}"
-       keypair='{{ keypair }}'
-       instance_tags='{"Environment":"{{ environment }}","Class":"{{ className }}-immutable","Name":"{{ appName }} (immutable)"}'
-       region='{{=<% %>=}}{{ region }}<%={{ }}=%>'
-       aws_zone='{{=<% %>=}}{{ region }}<%={{ }}=%>{{=<% %>=}}{{ aws_zone }}<%={{ }}=%>'
-       group='{{ security_group }}'
-       wait=true
-  register: ec2_info
+    ec2: image='ami-9eaa1cf6'
+         instance_type="{{=<% %>=}}{{ instance_type }}<%={{ }}=%>"
+         keypair='{{ keypair }}'
+         instance_tags='{"Environment":"{{ environment }}","Class":"{{ className }}-immutable","Name":"{{ appName }} (immutable)"}'
+         region='{{=<% %>=}}{{ region }}<%={{ }}=%>'
+         aws_zone='{{=<% %>=}}{{ region }}<%={{ }}=%>{{=<% %>=}}{{ aws_zone }}<%={{ }}=%>'
+         group='{{ security_group }}'
+         wait=true
+    register: ec2_info
 
-  - add_host: hostname={{=<% %>=}}{{ item.public_ip }}<%={{ }}=%>
-    groupname="{{ group }},ec2hosts"
+  - add_host: hostname={{=<% %>=}}{{ item.public_ip }}<%={{ }}=%> groupname="{{ group }},ec2hosts"
     with_items: ec2_info.instances
 
   - name: Wait for instances to listen on port 22
@@ -38,6 +37,8 @@
     - {{ appName }}
 
 - hosts: ec2hosts
+  vars:
+    region: '{{ region }}'
   tasks:
   - name: Gather ec2 facts
     ec2_facts:
