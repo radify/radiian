@@ -67,6 +67,8 @@ Guard your AWS credentials very carefully. Sensitive information should _never_ 
 1. Then, Ansible creates a new instance, whose details are mostly contained in `immutable.yaml`. 
 1. Finally, after everything is up and running smoothly, Ansible destroys the old nodes.
 
+Please see our article [Painless Immutable Infrastructure with Ansible and AWS](http://radify.io/blog/painless-immutable-infrastructure-with-ansible-and-aws/) for a description of how this playbook works.
+
 ### Getting Help
 `radiian -h` presents a minimal help menu, whereas `radiian -o` opens the much more detailed [online documentation](https://github.com/radify/radiian#readme). Additionally, you may [file an issue](https://github.com/radify/radiian/issues) on Github.
 
