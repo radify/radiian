@@ -6,7 +6,7 @@ var istanbul = require('gulp-istanbul');
 
 // Proofread the code
 gulp.task('lint', function() {
-  return gulp.src(['src/**/*.js'])
+  return gulp.src(['lib/**/*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
     .pipe(jshint.reporter('fail'));
@@ -20,7 +20,7 @@ gulp.task('test', function() {
 
 // Task that calculates the unit test coverage for the module
 gulp.task('coverage', function() {
-  return gulp.src('src/**/*.js')
+  return gulp.src('lib/**/*.js')
       .pipe(istanbul())
       .pipe(istanbul.hookRequire())
       .on('finish', function() {
@@ -34,15 +34,13 @@ gulp.task('coverage', function() {
 });
 
 gulp.task('style', function() {
-  return gulp.src('src/**/*.js')
-    .pipe(jscs({
-      fix: true
-    }));
+  return gulp.src('lib/**/*.js')
+    .pipe(jscs());
 });
 
 gulp.task('default', ['lint', 'style', 'test']);
 
 // On change to JavaScript files, run the default task
 gulp.task('dev', ['default'], function() {
-  gulp.watch(['spec/**/*.js', 'src/**/*.js'], ['default']);
+  gulp.watch(['spec/**/*.js', 'lib/**/*.js'], ['default']);
 });
