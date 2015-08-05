@@ -5,8 +5,7 @@
 ## Radify Immutable Infrastructure for Ansible
 
 ### What is Radiian? 
-Radiian sets up a skeleton Ansible playbook with immutable infrastructure on Amazon AWS. The playbook allows you to deploy 
-a very basic static website to EC2 immutably, complete with:
+Radiian scaffolds an Ansible playbook with immutable infrastructure on Amazon AWS. This playbook provides a template for deploying whatever Ansible roles you like in an [immutable fashion](http://radify.io/blog/painless-immutable-infrastructure-with-ansible-and-aws/). It will take care of all the immutable infrastructure side of things (standing up nodes, tearing them down, etc), leaving you free to focus on what you want installed on your nodes.The playbook includes the following:
 
 * Security Group
 * Load Balancer
@@ -57,7 +56,7 @@ If you see a mistake and have to repeat the dialogue, the default values are con
 `Your playbook has been created in the directory ./ansible`
 
 ### Side-note: Security
-Guard your AWS credentials very carefully. Sensitive information should _never_ be commited to version control. Once commited, it is very difficult to remove it from your repository's history. At the very least, put `ansible/inventory/aws_keys` in your `.gitignore` file. Tools such as [git-crypt](https://github.com/AGWA/git-crypt) and [Ansible Vault](https://docs.ansible.com/ansible/playbooks_vault.html) provide additional security.
+Guard your AWS credentials very carefully. Sensitive information should _never_ be commited to version control. Once commited, it is very difficult to remove it from your repository's history. At the very least, put `ansible/inventory/aws_keys` and your `.pem` key in your `.gitignore` file. Tools such as [git-crypt](https://github.com/AGWA/git-crypt) and [Ansible Vault](https://docs.ansible.com/ansible/playbooks_vault.html) provide additional security.
 
 ### Deployment
 
@@ -73,7 +72,7 @@ Please see our article [Painless Immutable Infrastructure with Ansible and AWS](
 `radiian -h` presents a minimal help menu, whereas `radiian -o` opens the much more detailed [online documentation](https://github.com/radify/radiian#readme). Additionally, you may [file an issue](https://github.com/radify/radiian/issues) on Github.
 
 ### Semantic Versioning
-Radiian, like npm, uses [semantic versioning.](http://semver.org/) Versions tags are found in `git`, `package.json`, and `radiian.js -V`.
+Radiian, like npm, uses [semantic versioning.](http://semver.org/). Versions tags are found in `git`, `package.json`, and `radiian.js -V`.
 To keep them all synchronized, we do *not* use `git tag` directly. Rather, we run `npm version x.y.z`, which updates the
 version number both in `package.json` and in `git`. (In fact, it adds a new `tag` commit automatically.) Because `radiian.js`
 receives its version number from `package.json`, there is never a need to update its versioning.
