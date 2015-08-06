@@ -41,7 +41,6 @@
   },
   "homepage": "https://github.com/radify/radiian#readme",
   "devDependencies": {
-    "deasync": "^0.1.0",
     "gulp": "^3.9.0",
     "gulp-istanbul": "^0.10.0",
     "gulp-jasmine": "^2.0.1",
@@ -55,6 +54,7 @@
     "mkdirp": "^0.5.1",
     "mustache": "^2.1.2",
     "openurl": "^1.1.0",
+    "deasync": "^0.1.0",
     "q": "^1.4.1"
   },
   "preferGlobal": true
