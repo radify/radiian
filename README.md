@@ -72,7 +72,7 @@ Please see our article [Painless Immutable Infrastructure with Ansible and AWS](
 `radiian -h` presents a minimal help menu, whereas `radiian -o` opens the much more detailed [online documentation](https://github.com/radify/radiian#readme). Additionally, you may [file an issue](https://github.com/radify/radiian/issues) on Github.
 
 ### Semantic Versioning
-Radiian, like npm, uses [semantic versioning.](http://semver.org/). Versions tags are found in `git`, `package.json`, and `radiian.js -V`.
+Radiian, like npm, uses [semantic versioning.](http://semver.org/). Versions tags are found in `git`, `package.json`, and `radiian -V`.
 To keep them all synchronized, we do *not* use `git tag` directly. Rather, we run `npm version x.y.z`, which updates the
 version number both in `package.json` and in `git`. (In fact, it adds a new `tag` commit automatically.) Because `radiian.js`
 receives its version number from `package.json`, there is never a need to update its versioning.
