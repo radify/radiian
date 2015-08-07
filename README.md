@@ -7,9 +7,12 @@
 ### What is Radiian? 
 Radiian scaffolds an Ansible playbook with immutable infrastructure on Amazon AWS. This playbook provides a template for deploying whatever Ansible roles you like in an [immutable fashion](http://radify.io/blog/painless-immutable-infrastructure-with-ansible-and-aws/). It will take care of all the immutable infrastructure side of things (standing up nodes, tearing them down, etc), leaving you free to focus on what you want installed on your nodes.The playbook includes the following:
 
-* Security Group
-* Load Balancer
-* EC2 Node(s)
+* Tagging old EC2 nodes for termination
+* Standing up new EC2 nodes
+* Adding the new EC2 nodes to the Elastic Load Balancer (ELB)
+* Terminating tagged old EC2 nodes
+
+![workflow.png](workflow.png)
 
 ### What is immutable infrastructure? 
 "Immutable infrastructure, or an immutable deployment, is where infrastructure never changes - it is completely replaced
@@ -27,6 +30,10 @@ We also recommend these additional articles to learn more.
 * [Painless Immutable Infrastructure with Ansible and AWS](http://radify.io/blog/painless-immutable-infrastructure-with-ansible-and-aws/)
 * [Immutable Demo Nodes](http://radify.io/blog/immutable-demo-nodes/)
 * [Forward-Only Deployments](http://radify.io/blog/forward-only-deployments/)
+
+### Workflow
+
+![Radiian-workflow.png](Radiian-workflow.png)
 
 ### Prerequisites
 You should already have set up the following items along with their prerequisites:
