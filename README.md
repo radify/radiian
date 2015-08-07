@@ -5,25 +5,28 @@
 ## Radify Immutable Infrastructure for Ansible
 
 ### What is Radiian? 
-Radiian scaffolds an Ansible playbook with immutable infrastructure on Amazon AWS. This playbook provides a template for deploying whatever Ansible roles you like in an [immutable fashion](http://radify.io/blog/painless-immutable-infrastructure-with-ansible-and-aws/). It will take care of all the immutable infrastructure side of things (standing up nodes, tearing them down, etc), leaving you free to focus on what you want installed on your nodes.The playbook includes the following:
+
+Radiian scaffolds an Ansible playbook for deploying immutable infrastructure on AWS. This playbook provides a template for deploying whatever Ansible roles you like in an [immutable fashion](http://radify.io/blog/painless-immutable-infrastructure-with-ansible-and-aws/). It will take care of all the immutable infrastructure side of things (standing up nodes, tearing them down, etc), leaving you free to focus on what you want installed on your nodes.
+
+The generated playbook takes care of the following:
 
 * Tagging old EC2 nodes for termination
 * Standing up new EC2 nodes
 * Adding the new EC2 nodes to the Elastic Load Balancer (ELB)
 * Terminating tagged old EC2 nodes
 
-![workflow.png](workflow.png)
+![Playbook workflow](workflow.png)
 
-### What is immutable infrastructure? 
+Your job is then just to configure the Ansible roles that you need to provision your EC2 nodes.
+
+### What is immutable infrastructure?
+
 "Immutable infrastructure, or an immutable deployment, is where infrastructure never changes - it is completely replaced
 when a deployment happens. Immutable infrastructure is an attempt to control the amount and location of state in a system. 
 Instead of the historical pattern of having a group of servers and maintaining them over time, immutable infrastructure 
 creates new servers on every deploy. You install your application on them, add them to the load balancer, and then remove 
 and destroy the old nodes. You can achieve rapid results by having a custom base box, which you provision in advance, so
-that only your code needs to be deployed" (Gavin Davies).
-
-Please read [_Reducing Infrustration_](http://radify.io/blog/reducing-infrustration/) to learn about immutable 
-infrastructure in far greater details. 
+that only your code needs to be deployed" ([_Reducing Infrustration_, radify.io blog](http://radify.io/blog/reducing-infrustration/)).
 
 We also recommend these additional articles to learn more.
 
@@ -33,9 +36,10 @@ We also recommend these additional articles to learn more.
 
 ### Workflow
 
-![Radiian-workflow.png](Radiian-workflow.png)
+![Radiian-Workflow.png](Radiian-Workflow.png)
 
 ### Prerequisites
+
 You should already have set up the following items along with their prerequisites:
 
 * An [AWS Account](https://aws.amazon.com/getting-started/) with the following:
@@ -47,11 +51,14 @@ You should already have set up the following items along with their prerequisite
 * [node.js](https://github.com/joyent/node/wiki/installation)
 
 ### Install Radiian
+
 `npm install -g radiian`
 
 ### Getting Started
 
-`cd` _either_ to an empty directory to create a new project _or_ to an existing directory that contains an AWS project provisioned by Ansible. `radiian init` will start a question and answer dialogue that will gather all of the necessary data to configure your project automatically. Here you will choose your AWS region, zone, instance type, and much more. _Please note_ that Radiian will write over an existing Ansible directory, so, if you want to keep your old `ansible/` directory, please back it up before running Radiian.  The full dialogue looks like the following:
+`cd` _either_ to an empty directory to create a new project _or_ to an existing directory that contains an AWS project provisioned by Ansible.
+
+Typing `radiian init` will start a question and answer dialogue that will gather all of the necessary data to configure your project automatically. Here you will choose your AWS region, zone, instance type, and much more. _Please note_ that Radiian will write over an existing Ansible directory, so, if you want to keep your old `ansible/` directory, please back it up before running Radiian.  The full dialogue looks like the following:
 
 ![dialogue.png](dialogue.png)
 
