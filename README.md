@@ -1,5 +1,6 @@
 ![Travis Build Status](https://travis-ci.org/radify/radiian.svg)
 ![Version](https://badge.fury.io/js/radiian.svg)
+![David - dependencies checker](https://david-dm.org/radify/radiian.svg)
 
 # Radiian
 
