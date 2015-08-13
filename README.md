@@ -1,6 +1,6 @@
-![Travis Build Status](https://travis-ci.org/radify/radiian.svg)
-![Version](https://badge.fury.io/js/radiian.svg)
-![David - dependencies checker](https://david-dm.org/radify/radiian.svg)
+[![Travis Build Status](https://travis-ci.org/radify/radiian.svg)](https://travis-ci.org/radify/radiian?branch=master)
+[![npm version](https://badge.fury.io/js/radiian.svg)](http://npmjs.com/package/radiian)
+[![Dependency Status](https://david-dm.org/radify/radiian.svg)](https://david-dm.org/radify/radiian)
 
 # Radiian
 
