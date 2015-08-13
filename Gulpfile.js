@@ -44,3 +44,4 @@ gulp.task('default', ['lint', 'style', 'test']);
 gulp.task('dev', ['default'], function() {
   gulp.watch(['spec/**/*.js', 'lib/**/*.js'], ['default']);
 });
+gulp.task('ci', ['default']);

@@ -1,10 +1,10 @@
-[ ![Codeship Status for radify/radiian](https://codeship.com/projects/b48eb730-0eb6-0133-f4b7-6a87ab38c290/status?branch=master)](https://codeship.com/projects/91776)
+![Build Status](https://travis-ci.org/radify/radiian.svg)
 
 # Radiian
 
 ## Radify Immutable Infrastructure for Ansible
 
-### What is Radiian? 
+### What is Radiian?
 
 Radiian scaffolds an Ansible playbook for deploying immutable infrastructure on AWS. This playbook provides a template for deploying whatever Ansible roles you like in an [immutable fashion](http://radify.io/blog/painless-immutable-infrastructure-with-ansible-and-aws/). It will take care of all the immutable infrastructure side of things (standing up nodes, tearing them down, etc), leaving you free to focus on what you want installed on your nodes.
 
@@ -22,9 +22,9 @@ Your job is then just to configure the Ansible roles that you need to provision 
 ### What is immutable infrastructure?
 
 "Immutable infrastructure, or an immutable deployment, is where infrastructure never changes - it is completely replaced
-when a deployment happens. Immutable infrastructure is an attempt to control the amount and location of state in a system. 
-Instead of the historical pattern of having a group of servers and maintaining them over time, immutable infrastructure 
-creates new servers on every deploy. You install your application on them, add them to the load balancer, and then remove 
+when a deployment happens. Immutable infrastructure is an attempt to control the amount and location of state in a system.
+Instead of the historical pattern of having a group of servers and maintaining them over time, immutable infrastructure
+creates new servers on every deploy. You install your application on them, add them to the load balancer, and then remove
 and destroy the old nodes. You can achieve rapid results by having a custom base box, which you provision in advance, so
 that only your code needs to be deployed" ([_Reducing Infrustration_, radify.io blog](http://radify.io/blog/reducing-infrustration/)).
 
@@ -46,7 +46,7 @@ You should already have set up the following items along with their prerequisite
     * Virtual Private Cloud (VPC)
     * Load balancer
     * Security group
-    * A domain in route 53 
+    * A domain in route 53
 * [Ansible](https://docs.ansible.com/ansible/intro_installation.html)
 * [node.js](https://github.com/joyent/node/wiki/installation)
 
@@ -76,8 +76,8 @@ Guard your AWS credentials very carefully. Sensitive information should _never_ 
 
 `./ansible/provision.sh` deploys your project immediately to AWS. Read `provision.sh` to see exactly what happens. This README is not the place to give a full explanation of [the inner workings of an Ansible playbook](https://docs.ansible.com/ansible/), but here is a quick summary of what happens:
 
-1. If there are any previous nodes, Ansible tags them. 
-1. Then, Ansible creates a new instance, whose details are mostly contained in `immutable.yaml`. 
+1. If there are any previous nodes, Ansible tags them.
+1. Then, Ansible creates a new instance, whose details are mostly contained in `immutable.yaml`.
 1. Finally, after everything is up and running smoothly, Ansible destroys the old nodes.
 
 Please see our article [Painless Immutable Infrastructure with Ansible and AWS](http://radify.io/blog/painless-immutable-infrastructure-with-ansible-and-aws/) for a description of how this playbook works.
