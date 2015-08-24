@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.1.4 - 2015-08-24
+* Fix
+    * The emendation dialogue now offers the AWS keys entered
+      during the first Q&A as the default values.
+
 ## 0.1.3 - 2015-08-20
 * Additions
     * A `CHANGELOG`
