@@ -7,8 +7,8 @@
     region: '{{ region }}'
     aws_zone: '{{ aws_zone }}'
   tasks:
-  - name: Launch instance (Ubuntu 14.04 hvm)
-    ec2: image='ami-9eaa1cf6'
+  - name: Launch Instance
+    ec2: image='{{ ami_id }}'
          instance_type="{{=<% %>=}}{{ instance_type }}<%={{ }}=%>"
          keypair='{{ keypair }}'
          instance_tags='{"Environment":"{{ environment }}","Class":"{{ className }}-immutable","Name":"{{ appName }} (immutable)"}'
