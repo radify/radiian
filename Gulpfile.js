@@ -7,7 +7,7 @@ var istanbul  = require('gulp-istanbul');
 var paths = {
   'spec' : 'spec/**/*.js',
   'lib'  : 'lib/**/*.js'
-}
+};
 
 // Proofread the code
 gulp.task('lint', function() {
