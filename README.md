@@ -100,4 +100,4 @@ Please see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-Radiian is released under the [MIT License](LICENSE.txt).
+Radiian is released under the [BSD 3-clause “New” License](LICENSE).

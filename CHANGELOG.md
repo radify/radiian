@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.1.5 - 2015-09-08
+
+* Adds AMI ID question
+* Fixes `ec2.py` permissions
+* Improves `provision.sh`
+* Improves keypair question
+* Updates README
+
 ## 0.1.4 - 2015-08-24
 * Adds devDependency badge to README
 * Fix

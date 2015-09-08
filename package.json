@@ -1,6 +1,6 @@
 {
   "name": "radiian",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Radiian generates an Ansible playbook for immutable infrastructure with AWS.",
   "bin": "lib/radiian.js",
   "main": "lib/radiian.js",
@@ -29,7 +29,7 @@
       "email": "gavin@radify.io",
       "url": "http://radify.io"
   }],
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/radify/radiian/issues"
   },
