@@ -17,4 +17,4 @@ ansible-playbook tag-old-nodes.yaml --limit tag_Environment_{{ environment }}
 ansible-playbook immutable.yaml -vv
 
 # Now terminate any instances with tag "old"
-ansible-playbook destroy-old-nodes.yaml --limit tag_{{ tag_old_app }}_True
+ansible-playbook destroy-old-nodes.yaml --limit tag_{{ tag_old_app }}_True || true
