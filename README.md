@@ -2,6 +2,7 @@
 [![npm version](https://badge.fury.io/js/radiian.svg)](http://npmjs.com/package/radiian)
 [![Dependency Status](https://david-dm.org/radify/radiian.svg)](https://david-dm.org/radify/radiian)
 [![devDependency Status](https://david-dm.org/radify/radiian/dev-status.svg)](https://david-dm.org/radify/radiian#info=devDependencies)
+[![Code Climate](https://codeclimate.com/github/radify/radiian/badges/gpa.svg)](https://codeclimate.com/github/radify/radiian)
 
 # Radiian
 

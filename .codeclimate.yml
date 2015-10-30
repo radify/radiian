@@ -1,0 +1,4 @@
+languages:
+  JavaScript: true
+exclude_paths:
+- "lib/templates/ec2.py"
