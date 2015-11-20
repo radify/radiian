@@ -46,6 +46,7 @@
     "gulp-jasmine": "^2.2.1",
     "gulp-jscs": "^3.0.2",
     "gulp-jshint": "^2.0.0",
+    "gulp-nsp": "^2.1.0",
     "jscs": "^2.6.0"
   },
   "dependencies": {
