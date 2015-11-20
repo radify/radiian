@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.1.6 - 2015-11-20
+
+* Configures Travis to auto-publish to NPM when the
+  tag on master changes
+
 ## 0.1.5 - 2015-09-08
 
 * Adds AMI ID question

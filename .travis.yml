@@ -17,3 +17,10 @@ matrix:
   allow_failures:
     - node_js: 4.0
 
+deploy:
+  provider: npm
+  api_key:
+    secure: "KP2ktSoNArc01Fvt9/4feIggTA8UxbnH64zMBPiQcKTMlkNCqwDOeeMA+os/fb7Yz1yZ9pRSM+MoUcphav3ykLTN+PqMiQ7BUpo9HMh58zH9SxvtP3LAn1hQOO3tarBfiVb8flrloyrXxrhKPXkYJckTPoJF/fx8ZzId0qMHbj4WhVx1Y1pGZdtqbEb8EJfHIs69e4AZLK3P2KA41omPyH+jhEbbC9MozKX0Z23SwmJQHqgUEipbYG0bAILD/A+j4C7LgHvh8wuqLu1XZfWkozJjNGqqOjcb1M6yaB90NzbBLhXDXjwHA+Fke5IaCfNY4F6FSqtYcgPf2BWQ0S4Pp9BvtD4e/qmDP7XYqiMIeGBuy/t8qT/rg3WX/nScCfSocDH1/+/5Zd78jdUYeFwVguPvihgfNFxNflCxg1Kzq09CuzvjAx/oc7PFm2GeDwq204+VFdQsOBSPJwEmlbSfozbRRtlSYQ4yPeA5Yw3o97V0kd7ZIG3r4GcyuMsSpMgfXv7GBNI4y5DDefnfJU0iLNiWJ21WatiUNLTxM1PRFfuMy05I22rwjYY5YQMEAi42/yQKhDABLk7rXjgpo7OML15ppxBswX8chV5ltGy+vKmtCAr7MCHo6PnK/Pj0g6aXYSwjnZhG391hZhJkn0LNLJzpD592na6zJEHYjpcf/VU="
+  on:
+    tags: true
+    branch: master
