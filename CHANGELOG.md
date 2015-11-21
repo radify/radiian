@@ -10,6 +10,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 - Reformats CHANGELOG in accord with [Keep a CHANGELOG](http://keepachangelog.com/)
 
+### Updated
+- Dependencies
+
 ## [0.1.6] - 2015-11-20
 ### Added
 - Configures Travis to auto-publish to NPM when the
