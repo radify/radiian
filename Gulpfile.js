@@ -3,6 +3,7 @@ var jshint    = require('gulp-jshint');
 var jscs      = require('gulp-jscs');
 var jasmine   = require('gulp-jasmine');
 var istanbul  = require('gulp-istanbul');
+var nsp       = require('gulp-nsp');
 
 var paths = {
   'spec' : 'spec/**/*.js',
@@ -43,7 +44,14 @@ gulp.task('style', function() {
     .pipe(jscs());
 });
 
-gulp.task('default', ['lint', 'style', 'test']);
+gulp.task('security', function(cb) {
+  nsp({
+    package: __dirname + '/package.json',
+    stopOnError: true
+  }, cb);
+});
+
+gulp.task('default', ['lint', 'style', 'test', 'security']);
 
 // alias watch === dev
 gulp.task('watch', ['dev']);

@@ -6,6 +6,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - CodeClimate Integration via Travis
 - CodeClimate badge to README
+- Installs gulp-nsp
+- Adds gulp security task to gulp default task
 
 ### Fixed
 - Reformats CHANGELOG in accord with [Keep a CHANGELOG](http://keepachangelog.com/)
