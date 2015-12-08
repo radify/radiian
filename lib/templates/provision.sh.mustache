@@ -11,7 +11,7 @@ ssh-add -l
 . ./inventory/aws_keys
 
 # Tag any existing {{ app }} instances as being old
-ansible-playbook tag-old-nodes.yaml --limit tag_Environment_{{{ environment }}}
+ansible-playbook tag-old-nodes.yaml --limit tag_Environment_{{{ environment }}} || true
 
 # Start a new instance
 ansible-playbook immutable.yaml -vv
