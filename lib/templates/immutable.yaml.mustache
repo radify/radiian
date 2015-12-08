@@ -3,22 +3,22 @@
   connection: local
   gather_facts: false
   vars:
-    instance_type: '{{ instance_type }}'
-    region: '{{ region }}'
-    aws_zone: '{{ aws_zone }}'
+    instance_type: '{{{ instance_type }}}'
+    region: '{{{ region }}}'
+    aws_zone: '{{{ aws_zone }}}'
   tasks:
   - name: Launch Instance
-    ec2: image='{{ ami_id }}'
+    ec2: image='{{{ ami_id }}}'
          instance_type="{{=<% %>=}}{{ instance_type }}<%={{ }}=%>"
-         keypair='{{ keypair }}'
-         instance_tags='{"Environment":"{{ environment }}","Class":"{{ className }}-immutable","Name":"{{ appName }} (immutable)"}'
+         keypair='{{{ keypair }}}'
+         instance_tags='{"Environment":"{{{ environment }}}","Class":"{{{ className }}}-immutable","Name":"{{{ appName }}} (immutable)"}'
          region='{{=<% %>=}}{{ region }}<%={{ }}=%>'
          aws_zone='{{=<% %>=}}{{ region }}<%={{ }}=%>{{=<% %>=}}{{ aws_zone }}<%={{ }}=%>'
-         group='{{ security_group }}'
+         group='{{{ security_group }}}'
          wait=true
     register: ec2_info
 
-  - add_host: hostname={{=<% %>=}}{{ item.public_ip }}<%={{ }}=%> groupname="{{ group }},ec2hosts"
+  - add_host: hostname={{=<% %>=}}{{ item.public_ip }}<%={{ }}=%> groupname="{{{ group }}},ec2hosts"
     with_items: ec2_info.instances
 
   - name: Wait for instances to listen on port 22
@@ -31,14 +31,14 @@
 # Run your specific roles that install and configure your application
 - hosts: ec2hosts
   gather_facts: true
-  user: {{ remote_user }}
+  user: {{{ remote_user }}}
   sudo: yes
   roles:
-    - {{ appName }}
+    - {{{ appName }}}
 
 - hosts: ec2hosts
   vars:
-    region: '{{ region }}'
+    region: '{{{ region }}}'
   tasks:
   - name: Gather ec2 facts
     ec2_facts:
@@ -48,5 +48,5 @@
       module: ec2_elb
       region: "{{=<% %>=}}{{ region }}<%={{ }}=%>"
       instance_id: "{{=<% %>=}}{{ ansible_ec2_instance_id }}<%={{ }}=%>"
-      ec2_elbs: "{{ load_balancer }}"
+      ec2_elbs: "{{{ load_balancer }}}"
       state: present

@@ -2,7 +2,7 @@
 - name: terminate old instances
   hosts: all
   vars:
-    region: '{{ region }}'
+    region: '{{{ region }}}'
   tasks:
     - action: ec2_facts
     - name: terminating old instances
@@ -10,5 +10,5 @@
         module: ec2
         state: 'absent'
         region: '{{=<% %>=}}{{ region }}<%={{ }}=%>'
-        keypair: '{{ keypair }}'
+        keypair: '{{{ keypair }}}'
         instance_ids: "{{=<% %>=}}{{ ansible_ec2_instance_id }}<%={{ }}=%>"

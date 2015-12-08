@@ -11,6 +11,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 - Reformats CHANGELOG in accord with [Keep a CHANGELOG](http://keepachangelog.com/)
+- Changes mustache tags in order **not** to escape HTML special characters
 
 ### Updated
 - Dependencies
