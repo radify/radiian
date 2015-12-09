@@ -1,7 +1,7 @@
 [defaults]
 ansible_managed = Ansible managed: {file} modified on %Y-%m-%d %H:%M:%S by {uid} on {host}
 hostfile = inventory/ec2.py
-remote_user = {{ remote_user }}
+remote_user = {{{ remote_user }}}
 [ssh_connection]
 pipelining = True
 ssh_args = -o ControlMaster=auto -o ControlPersist=30m -o StrictHostKeyChecking=no
