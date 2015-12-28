@@ -1,6 +1,6 @@
 {
   "name": "radiian",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Radiian generates an Ansible playbook for immutable infrastructure with AWS.",
   "bin": "lib/radiian.js",
   "main": "lib/radiian.js",
@@ -20,15 +20,18 @@
     "server",
     "provisioning"
   ],
-  "contributors": [{
+  "contributors": [
+    {
       "name": "John F. Mercer",
       "email": "john@radify.io",
       "url": "http://radify.io"
-    }, {
+    },
+    {
       "name": "Gavin Davies",
       "email": "gavin@radify.io",
       "url": "http://radify.io"
-  }],
+    }
+  ],
   "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/radify/radiian/issues"
