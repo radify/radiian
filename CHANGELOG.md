@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.1.7] - 2015-12-28
 ### Added
 - CodeClimate Integration via Travis
 - CodeClimate badge to README
@@ -13,6 +15,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Reformats CHANGELOG in accord with [Keep a CHANGELOG](http://keepachangelog.com/)
 - Changes mustache tags in order **not** to escape HTML special characters
 - Simplifies `Generator.js`
+
+### Security
+- Removes a security vulnerability by updating `mustache`
 
 ### Updated
 - Dependencies
@@ -66,7 +71,8 @@ during the first Q&A as the default values
 ## 0.1.1 - 2015-08-06
 - Initial Release
 
-[Unreleased]: https://github.com/radify/radiian/compare/0.1.6...HEAD
+[Unreleased]: https://github.com/radify/radiian/compare/0.1.7...HEAD
+[0.1.7]: https://github.com/radify/radiian/compare/0.1.6...0.1.7
 [0.1.6]: https://github.com/radify/radiian/compare/0.1.5...0.1.6
 [0.1.5]: https://github.com/radify/radiian/compare/0.1.4...0.1.5
 [0.1.4]: https://github.com/radify/radiian/compare/0.1.3...0.1.4
