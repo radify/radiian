@@ -42,18 +42,18 @@
   "homepage": "https://github.com/radify/radiian#readme",
   "devDependencies": {
     "gulp": "^3.9.0",
-    "gulp-istanbul": "^0.10.2",
+    "gulp-istanbul": "^0.10.3",
     "gulp-jasmine": "^2.2.1",
     "gulp-jscs": "^3.0.2",
     "gulp-jshint": "^2.0.0",
-    "gulp-nsp": "^2.1.0",
-    "jscs": "^2.6.0"
+    "gulp-nsp": "^2.2.1",
+    "jscs": "^2.7.0"
   },
   "dependencies": {
     "commander": "^2.9.0",
     "inquirer": "^0.11.0",
     "mkdirp": "^0.5.1",
-    "mustache": "^2.2.0",
+    "mustache": "^2.2.1",
     "openurl": "^1.1.0",
     "deasync": "^0.1.4",
     "q": "^1.4.1"
