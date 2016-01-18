@@ -10,6 +10,9 @@ ssh-add -l
 # Load the AWS keys
 . ./inventory/aws_keys
 
+# Ensure the app's cache is up to date
+inventory/ec2.py --refresh-cache
+
 # Tag any existing {{ app }} instances as being old
 ansible-playbook tag-old-nodes.yaml --limit tag_Environment_{{{ environment }}} || true
 
