@@ -9,6 +9,6 @@
       local_action:
         module: ec2
         state: 'absent'
-        region: '{{=<% %>=}}{{ region }}<%={{ }}=%>'
+        region: '{{=<% %>=}}{{ ansible_ec2_placement_region }}<%={{ }}=%>'
         keypair: '{{{ keypair }}}'
         instance_ids: "{{=<% %>=}}{{ ansible_ec2_instance_id }}<%={{ }}=%>"
