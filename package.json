@@ -50,7 +50,8 @@
     "gulp-jscs": "^3.0.2",
     "gulp-jshint": "^2.0.0",
     "gulp-nsp": "^2.2.1",
-    "jscs": "^2.7.0"
+    "jscs": "^2.7.0",
+    "jshint": "^2.9.1"
   },
   "dependencies": {
     "commander": "^2.9.0",
