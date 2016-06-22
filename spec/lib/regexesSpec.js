@@ -12,6 +12,20 @@ describe('regexes.js', function() {
     });
   });
 
+  describe('vpc_subnet_id', function(){
+    it("should fail on anything that doesnt start with subnet", function(){
+      expect(regexes.vpc.test('ami-47a23a30')).toBeFalsy();
+    });
+
+    it("should fail on anything that doesnt end with 8 alphanumeric chars", function(){
+      expect(regexes.vpc.test('subnet-47a2330')).toBeFalsy();
+    });
+
+    it('should pass on valid subnet ids', function(){
+      expect(regexes.vpc.test('subnet-47a23350')).toBeTruthy();
+    });
+  });
+
   describe('awsKey', function() {
     it('should fail on anything that is not exactly 20 characters long', function(){
       expect(regexes.awsKey.test("435FFGSGHF5")).toBeFalsy();
