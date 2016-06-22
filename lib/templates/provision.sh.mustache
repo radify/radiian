@@ -6,7 +6,7 @@ set -o pipefail
 
 # Make sure SSH knows to use the correct pem
 ssh-add {{{ appPem }}}
-ssh-add -l
+
 # Load the AWS keys
 . ./inventory/aws_keys
 
