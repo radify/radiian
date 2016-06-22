@@ -8,14 +8,18 @@
     aws_zone: '{{{ aws_zone }}}'
   tasks:
   - name: Launch Instance
-    ec2: image='{{{ ami_id }}}'
-         instance_type="{{=<% %>=}}{{ instance_type }}<%={{ }}=%>"
-         keypair='{{{ keypair }}}'
-         instance_tags='{"Environment":"{{{ environment }}}","Class":"{{{ className }}}-immutable","Name":"{{{ appName }}} (immutable)"}'
-         region='{{=<% %>=}}{{ region }}<%={{ }}=%>'
-         aws_zone='{{=<% %>=}}{{ region }}<%={{ }}=%>{{=<% %>=}}{{ aws_zone }}<%={{ }}=%>'
-         group='{{{ security_group }}}'
-         wait=true
+    ec2:
+      image: '{{{ ami_id }}}'
+      instance_type: "{{=<% %>=}}{{ instance_type }}<%={{ }}=%>"
+      keypair: '{{{ keypair }}}'
+      instance_tags:
+        Environment": "{{{ environment }}}"
+        Class: "{{{ className }}}-immutable"
+        Name: "{{{ appName }}} (immutable)"
+      region: '{{=<% %>=}}{{ region }}<%={{ }}=%>'
+      aws_zone: '{{=<% %>=}}{{ region }}<%={{ }}=%>{{=<% %>=}}{{ aws_zone }}<%={{ }}=%>'
+      group: '{{{ security_group }}}'
+      wait: true
     register: ec2_info
 
   - add_host: hostname={{=<% %>=}}{{ item.public_ip }}<%={{ }}=%> groupname="{{{ group }}},ec2hosts"
