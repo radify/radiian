@@ -19,5 +19,8 @@ ansible-playbook tag-old-nodes.yaml --limit tag_Environment_{{{ environment }}} 
 # Start a new instance
 ansible-playbook immutable.yaml -vv
 
+# Refresh cache to see the new tags
+inventory/ec2.py --refresh-cache
+
 # Now terminate any instances with tag "old"
 ansible-playbook destroy-old-nodes.yaml --limit tag_{{{ tag_old_app }}}_True || true
