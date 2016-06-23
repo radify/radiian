@@ -14,7 +14,7 @@ ssh-add {{{ appPem }}}
 inventory/ec2.py --refresh-cache
 
 # Tag any existing {{ app }} instances as being old
-ansible-playbook tag-old-nodes.yaml --limit tag_Environment_{{{ environment }}} || true
+ansible-playbook tag-old-nodes.yaml --limit tag_Environment_{{{ converted_environment }}} || true
 
 # Start a new instance
 ansible-playbook immutable.yaml -vv
