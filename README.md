@@ -51,6 +51,7 @@ You should already have set up the following items along with their prerequisite
     * Load balancer
     * Security group
     * A domain in route 53
+    * An IAM machine user with [appropriate permissions](#appropriate-permissions)
 * [Ansible](https://docs.ansible.com/ansible/intro_installation.html)
 * [node.js](https://github.com/joyent/node/wiki/installation)
 
@@ -72,6 +73,9 @@ At the conclusion, you will see a summary of your entries along with an option t
 
 If you see a mistake and have to repeat the dialogue, the default values are conveniently changed to your previous entries, so that you won't be forced to retype correct entries. When finished, Radiian will create an Ansible playbook that is ready for immediate deployment to AWS. The output will read:
 `Your playbook has been created in the directory ./ansible`
+
+### <a name="appropriate-permissions"></a> Setting Up An IAM Machine User
+You need to have an IAM machine user in order for the playbook to access your AWS account. That user must have various permissions in order for it to access your AWS account. When setting up your IAM machine user, you want to abide by the principle of least privilege. You can check out best practices [here](http://radify.io/blog/rise-of-the-machine-users/). [This](https://gist.github.com/Jstillerman/bdc4b11c0a32a1d4d71784dbedca992b) is an example of an IAM Policy that you could use for your machine user that provides Ansible with enough power to run your immutable infrastructure without opening the front-door security wise. If you use this policy be sure to add in your account and subnet IDs where indicated.
 
 ### Side-note: Security
 Guard your AWS credentials very carefully. Sensitive information should _never_ be commited to version control. Once commited, it is very difficult to remove it from your repository's history. At the very least, put `ansible/inventory/aws_keys` and your `.pem` key in your `.gitignore` file. Tools such as [git-crypt](https://github.com/AGWA/git-crypt) and [Ansible Vault](https://docs.ansible.com/ansible/playbooks_vault.html) provide additional security.
