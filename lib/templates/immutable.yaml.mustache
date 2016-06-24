@@ -18,6 +18,10 @@
       region: '{{=<% %>=}}{{ region }}<%={{ }}=%>'
       aws_zone: '{{=<% %>=}}{{ region }}<%={{ }}=%>{{=<% %>=}}{{ aws_zone }}<%={{ }}=%>'
       group: '{{{ security_group }}}'
+      {{#using_vpc}}
+      vpc_subnet_id: '{{{ vpc_subnet_id }}}'
+      assign_public_ip: yes
+      {{/using_vpc}}
       wait: true
     register: ec2_info
 
