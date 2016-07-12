@@ -1,6 +1,6 @@
 {
   "name": "radiian",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Radiian generates an Ansible playbook for immutable infrastructure with AWS.",
   "bin": "lib/radiian.js",
   "main": "lib/radiian.js",
